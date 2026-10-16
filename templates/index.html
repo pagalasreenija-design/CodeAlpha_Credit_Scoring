@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Credit Scoring System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 7px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5568d9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f3f4ff;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .result h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💳 Credit Scoring System</h1>
+
+    <p class="subtitle">
+        Predict customer creditworthiness using Machine Learning
+    </p>
+
+    <form action="/predict" method="POST">
+
+        <label>Age</label>
+        <input type="number" name="age" step="any" required>
+
+        <label>Income</label>
+        <input type="number" name="income" step="any" required>
+
+        <label>Loan Amount</label>
+        <input type="number" name="loan_amount" step="any" required>
+
+        <label>Credit Score</label>
+        <input type="number" name="credit_score" step="any" required>
+
+        <label>Debt</label>
+        <input type="number" name="debt" step="any" required>
+
+        <label>Payment History</label>
+        <input type="number" name="payment_history" step="any" required>
+
+        <label>Employment Years</label>
+        <input type="number" name="employment_years" step="any" required>
+
+        <button type="submit">
+            Predict Creditworthiness
+        </button>
+
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Result</h2>
+
+        <h3>{{ result }}</h3>
+
+        <p>
+            Creditworthiness Probability:
+            <strong>{{ probability }}</strong>
+        </p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
